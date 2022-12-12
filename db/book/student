@@ -1,14 +1,4 @@
 id[pk]: int; name: string;
+:10;kamal; : 
+:2;omar; : 
 
-------------
-1;khaled;
-------------
-2;Tharwat;
-------------
-3;Karim;
-------------
-4;Khaled;
-------------
-5;Mohamed;
-------------
-6;saad;

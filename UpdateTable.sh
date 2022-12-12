@@ -14,10 +14,10 @@ function VaildInput {
     fi
 }
 function primaryKey {
-    fieldNumber=`awk -v RS=';' "/pk/"'{print NR}' $1`
-    pksValues=`sed '1d' $1|cut -d ";" -f $fieldNumber `
+    Searchpk=`awk -v RS=';' "/pk/"'{print NR}' $1`
+    pkValue=`sed '1d' $1|cut -d ";" -f $Searchpk `
    
-    for value in $pksValues
+    for value in $pkValue
     do
         if ! [[ $2 =~ $IsNumber ]] ; 
         then
@@ -122,14 +122,14 @@ function primaryKey {
            exit
    fi
        ## Search Column exist or No
-    fieldNumber=`awk -v RS=';' "/$colName/ "'{print NR}' $tableName`
+    SearchColumnNumber=`awk -v RS=';' "/$colName/ "'{print NR}' $tableName`
     ##################################################################33
 
 
 
     read -p "Please Enter conditon value of Column : " value
     #line number
-    searchResult=`cut -d ";" -f $fieldNumber $tableName 2>/dev/null |awk "/$value/"'{print NR}' `
+    searchResult=`cut -d ";" -f $SearchColumnNumber $tableName 2>/dev/null |awk "/$value/"'{print NR}' `
    
     if [ -z $value ]
     then
