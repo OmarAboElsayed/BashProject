@@ -39,22 +39,31 @@ function primaryKey {
 
     read -p "Please Enter your Table Name: " tableName
       # check tableName 
-       if ! [ -z "$tableName" ]
+     if ! [ -z "$tableName" ]
         then 
-         if ! [[ $tableName =~ $IsNumber ]] ; then
-               
-                echo -e "${green}Table Created Successfully" 
-                echo -e "${Cyan}"
+         if ! [[ $tableName =~ $IsNumber ]] ; 
+            then
+                   if  [ -f $tableName ]
+                       then
+                   
+                       echo -e "${green} TableName Successfully" 
+                       echo -e "${Cyan}"
+                       else
+                       echo  -e "${red}Table Not  exist"
+                       echo -e "${Cyan}" 
+                       exit
+                   fi
             else
-                 echo -e "${red} Not Number...!Cant create Table with $tableName"
-                 echo -e "${Cyan}"
-                 exit
+             echo -e "${red} Not Number... $tableName"
+             echo -e "${Cyan}"
+             exit
          fi
         else
-           echo -e "${red} Empty value...! This is not accapt Empty value "
-           echo -e "${Cyan}"
-           exit
+     echo -e "${red} Empty value...! This is not accept Empty value "
+     echo -e "${Cyan}"
+     exit
    fi
+   
    ############################################
    
     read -p "Please Enter Update Name of Column : " colUpdate

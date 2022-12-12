@@ -15,51 +15,34 @@ function validInput {
     fi
 }
 read -p "Please Enter Your Table Name: " tableName
-  # check tableName 
+    # check tableName 
 
-#    if ! [ -z "$tableName" ]
-#         then 
-#          if ! [[ $tableName =~ $isNumber ]] ; 
-#             then
-#                    if ! [ -f $tableName ]
-#                        then
-#                        touch $tableName
-#                        echo -e "${green}TableName Created Successfully" 
-#                        echo -e "${Cyan}"
-#                        else
-#                        echo  -e "${red}Table already exist"
-#                        echo -e "${Cyan}" 
-#                        exit
-#                    fi
-#             else
-#              echo -e "${red} Not Number...!Cant creat Table with $tableName"
-#              echo -e "${Cyan}"
-#              exit
-#          fi
-#         else
-#      echo -e "${red} Empty value...! This is not accept Empty value "
-#      echo -e "${Cyan}"
-#      exit
-#    fi
 
-  # check tableName 
- 
    if ! [ -z "$tableName" ]
         then 
-         if ! [[ $tableName =~ $IsNumber ]] ; then
-                touch $tableName
-                echo -e "${green}Table Created Successfully" 
-                echo -e "${Cyan}"
+         if ! [[ $tableName =~ $IsNumber ]] ; 
+            then
+                   if ! [ -f $tableName ]
+                       then
+                       touch $tableName
+                       echo -e "${green}Tablename Created Successfully" 
+                       echo -e "${Cyan}"
+                       else
+                       echo  -e "${red}Table already exist"
+                       echo -e "${Cyan}" 
+                       exit
+                   fi
             else
-                 echo -e "${red} Not Number...!Cant create Table with $tableName"
-                 echo -e "${Cyan}"
-                 exit
+             echo -e "${red} Not Number...!Cant create Table with $tableName"
+             echo -e "${Cyan}"
+             exit
          fi
         else
-           echo -e "${red} Empty value...! This is not accapt Empty value "
-           echo -e "${Cyan}"
-           exit
+     echo -e "${red} Empty value...! This is not accapt Empty value "
+     echo -e "${Cyan}"
+     exit
    fi
+
     #######################################
   read -p "Please Enter Your number of Columns " colNum
     validInput $colNum "int"
@@ -124,7 +107,7 @@ read -p "Please Enter Your Table Name: " tableName
         fi
         columns+="$colName:$colType;"
         i+=1
-        echo -e "${green}Successfully"
+        echo -e "${green} Created Table Successfully "
         echo -e "${Cyan}"
     done
     echo $columns>>$tableName;
