@@ -1,2 +1,6 @@
 # BashProject
 project Bash Create Database Engine 
+# Run Project
+...
+bash .menu1.sh
+...
